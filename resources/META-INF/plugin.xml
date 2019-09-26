@@ -1,0 +1,35 @@
+<idea-plugin>
+    <id>com.ishow.plugin.mvvm</id>
+    <name>MVVM Code Gengrenator</name>
+    <version>1.0.0</version>
+    <vendor email="y.haiyang@qq.com" url="http://www.i-show.club">i-show</vendor>
+
+    <description><![CDATA[
+      <h1>MVVM Code Gengrenator</h1>
+      <p> 可以自动生成Android MVVM 代码的插件</p>
+    ]]></description>
+
+    <change-notes><![CDATA[
+       <h1>MVVM Code Gengrenator</h1>
+      <p> 可以自动生成Android MVVM 代码的插件</p>
+    ]]>
+    </change-notes>
+    <idea-version since-build="173.0"/>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable instance="com.ishow.plugin.mvvm.configure.MvvmTemplateConfigure"/>
+        <applicationService serviceImplementation="com.ishow.plugin.mvvm.configure.MvvmTemplateSettings"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="MvvmGengrenatorAction"
+                class="com.ishow.plugin.mvvm.action.MvvmGengrenatorAction"
+                text="MvvmGengrenatorAction"
+                description="MvvmGengrenatorAction">
+            <keyboard-shortcut keymap="$default" first-keystroke="shift meta M"/>
+        </action>
+
+    </actions>
+
+</idea-plugin>
