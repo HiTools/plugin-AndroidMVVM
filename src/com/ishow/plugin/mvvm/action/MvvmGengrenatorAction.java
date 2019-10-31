@@ -19,15 +19,14 @@ import java.io.IOException;
 /**
  * Created by yuhaiyang on 2019/9/26.
  */
+@SuppressWarnings("ComponentNotRegistered")
 public class MvvmGengrenatorAction extends AnAction {
     private Project project;
-    private PsiDirectory psiDirectory;
 
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
         project = e.getData(PlatformDataKeys.PROJECT);
         final IdeView view = e.getRequiredData(LangDataKeys.IDE_VIEW);
-        psiDirectory = view.getOrChooseDirectory();
 
         final String path = getCurrentPath(e);
         final String moduleName = inputModuleName();
@@ -41,17 +40,13 @@ public class MvvmGengrenatorAction extends AnAction {
         refreshProject(e);
     }
 
-    private void create(String pathString, String targetName) throws IOException {
-        final String packageName = getPackageName(pathString);
-        final MvvmTemplateSettings setting = MvvmTemplateSettings.getInstance();
-        createView(setting, pathString, packageName, targetName);
-        createViewModel(setting, pathString, packageName, targetName);
-        createLayout(setting, getLayoutPath(pathString), packageName, targetName);
+    protected void create(String pathString, String targetName) throws IOException {
+
     }
 
-    private void createView(MvvmTemplateSettings setting, String pathString, String packageName, String targetName) throws IOException {
-        final String fileName = StringUtils.plusString(targetName, MVVMTemple.VIEW_SUFFIX, ".kt");
-        String content = setting.getViewTemplate();
+    void createActivity(MvvmTemplateSettings setting, String pathString, String packageName, String targetName) throws IOException {
+        final String fileName = StringUtils.plusString(targetName, MVVMTemple.ACTIVITY_SUFFIX, ".kt");
+        String content = setting.getActivityTemplate();
         content = content.replaceAll("\\$\\{PACKAGE_NAME}", packageName);
         content = content.replaceAll("\\$\\{TARGET_NAME}", targetName);
         content = content.replaceAll("\\$\\{TARGET_NAME_LINE}", StringUtils.humpToLine(targetName));
@@ -59,7 +54,18 @@ public class MvvmGengrenatorAction extends AnAction {
         createFile(pathString, fileName, content);
     }
 
-    private void createViewModel(MvvmTemplateSettings setting, String pathString, String packageName, String targetName) throws IOException {
+
+    void createFragment(MvvmTemplateSettings setting, String pathString, String packageName, String targetName) throws IOException {
+        final String fileName = StringUtils.plusString(targetName, MVVMTemple.FRAGMENT_SUFFIX, ".kt");
+        String content = setting.getFragmentTemplate();
+        content = content.replaceAll("\\$\\{PACKAGE_NAME}", packageName);
+        content = content.replaceAll("\\$\\{TARGET_NAME}", targetName);
+        content = content.replaceAll("\\$\\{TARGET_NAME_LINE}", StringUtils.humpToLine(targetName));
+        content = StringUtils.format(content);
+        createFile(pathString, fileName, content);
+    }
+
+    void createViewModel(MvvmTemplateSettings setting, String pathString, String packageName, String targetName) throws IOException {
         final String fileName = StringUtils.plusString(targetName, MVVMTemple.VIEW_MODEL_SUFFIX, ".kt");
         String content = setting.getViewModelTemplate().replaceAll("\\$\\{PACKAGE_NAME}", packageName);
         content = content.replaceAll("\\$\\{TARGET_NAME}", targetName);
@@ -67,8 +73,16 @@ public class MvvmGengrenatorAction extends AnAction {
         createFile(pathString, fileName, content);
     }
 
-    private void createLayout(MvvmTemplateSettings setting, String pathString, String packageName, String targetName) throws IOException {
+    void createActivityLayout(MvvmTemplateSettings setting, String pathString, String packageName, String targetName) throws IOException {
         final String fileName = StringUtils.plusString("a", StringUtils.humpToLine(targetName), ".xml");
+        String content = setting.getLayoutTemplate().replaceAll("\\$\\{PACKAGE_NAME}", packageName);
+        content = content.replaceAll("\\$\\{TARGET_NAME}", targetName);
+        content = StringUtils.format(content);
+        createFile(pathString, fileName, content);
+    }
+
+    void createFragemtnLayout(MvvmTemplateSettings setting, String pathString, String packageName, String targetName) throws IOException {
+        final String fileName = StringUtils.plusString("f", StringUtils.humpToLine(targetName), ".xml");
         String content = setting.getLayoutTemplate().replaceAll("\\$\\{PACKAGE_NAME}", packageName);
         content = content.replaceAll("\\$\\{TARGET_NAME}", targetName);
         content = StringUtils.format(content);
@@ -121,7 +135,7 @@ public class MvvmGengrenatorAction extends AnAction {
     }
 
 
-    private String getPackageName(String path) {
+    protected String getPackageName(String path) {
         String[] strings = path.split("/");
         StringBuilder packageName = new StringBuilder();
         boolean packageBegin = false;
@@ -140,7 +154,7 @@ public class MvvmGengrenatorAction extends AnAction {
         return packageName.toString();
     }
 
-    private String getLayoutPath(String path) {
+    protected String getLayoutPath(String path) {
         int index = path.indexOf("/java/");
         return path.substring(0, index) + "/res/layout/";
     }

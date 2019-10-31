@@ -34,7 +34,8 @@ public class MvvmTemplateConfigure implements SearchableConfigurable {
 
     @Override
     public void reset() {
-        form.viewTemplate.setText(MVVMTemple.VIEW);
+        form.activityTemplate.setText(MVVMTemple.ACTIVITY);
+        form.fragmentTemplate.setText(MVVMTemple.FRAGMENT);
         form.viewModelTemplate.setText(MVVMTemple.VIEW_MODEL);
         form.layoutTemplate.setText(MVVMTemple.LAYOUT);
     }
@@ -51,14 +52,16 @@ public class MvvmTemplateConfigure implements SearchableConfigurable {
     @Override
     public boolean isModified() {
 
-        return !settings.getViewTemplate().equals(form.viewTemplate.getText()) ||
+        return !settings.getActivityTemplate().equals(form.activityTemplate.getText()) ||
+                !settings.getFragmentTemplate().equals(form.fragmentTemplate.getText()) ||
                 !settings.getViewModelTemplate().equals(form.viewModelTemplate.getText()) ||
                 !settings.getLayoutTemplate().equals(form.layoutTemplate.getText());
     }
 
     @Override
     public void apply() throws ConfigurationException {
-        settings.setViewTemplate(form.viewTemplate.getText());
+        settings.setActivityTemplate(form.activityTemplate.getText());
+        settings.setActivityTemplate(form.fragmentTemplate.getText());
         settings.setViewModelTemplate(form.viewModelTemplate.getText());
         settings.setLayoutlTemplate(form.layoutTemplate.getText());
     }

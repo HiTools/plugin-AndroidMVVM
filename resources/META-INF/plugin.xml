@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.ishow.plugin.mvvm</id>
     <name>MVVM Code Gengrenator</name>
-    <version>1.0.0</version>
+    <version>1.0.5</version>
     <vendor email="y.haiyang@qq.com" url="http://www.i-show.club">i-show</vendor>
 
     <description><![CDATA[
@@ -23,11 +23,18 @@
 
     <actions>
         <!-- Add your actions here -->
-        <action id="MvvmGengrenatorAction"
-                class="com.ishow.plugin.mvvm.action.MvvmGengrenatorAction"
-                text="MvvmGengrenatorAction"
-                description="MvvmGengrenatorAction">
-            <keyboard-shortcut keymap="$default" first-keystroke="shift meta M"/>
+        <action id="MVVMActivityAction"
+                class="com.ishow.plugin.mvvm.action.MVVMActivityAction"
+                text="MVVMActivityAction"
+                description="Activity生成Action">
+            <keyboard-shortcut keymap="$default" first-keystroke="shift meta A"/>
+        </action>
+
+        <action id="MVVMFragmentAction"
+                class="com.ishow.plugin.mvvm.action.MVVMFragmentAction"
+                text="MVVMFragmentAction"
+                description="Fragment生成Action">
+            <keyboard-shortcut keymap="$default" first-keystroke="shift meta F"/>
         </action>
 
     </actions>

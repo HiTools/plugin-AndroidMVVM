@@ -15,7 +15,8 @@ import org.jetbrains.annotations.Nullable;
  */
 @State(name = "MvvpTemplateSetting", storages = {@Storage(file = "$APP_CONFIG$/format.xml")})
 public class MvvmTemplateSettings implements PersistentStateComponent<Element> {
-    private String viewTemplate;
+    private String activityTemplate;
+    private String fragmentTemplate;
     private String viewModelTemplate;
     private String layoutTemplate;
 
@@ -27,7 +28,8 @@ public class MvvmTemplateSettings implements PersistentStateComponent<Element> {
     @Override
     public Element getState() {
         Element element = new Element("MvvmTemplateSettings");
-        element.setAttribute("viewTemplate", getViewTemplate());
+        element.setAttribute("activityTemplate", getActivityTemplate());
+        element.setAttribute("fragmentTemplate", getFragmentTemplate());
         element.setAttribute("viewModelTemplate", getViewModelTemplate());
         element.setAttribute("layoutTemplate", getLayoutTemplate());
         return element;
@@ -35,18 +37,27 @@ public class MvvmTemplateSettings implements PersistentStateComponent<Element> {
 
     @Override
     public void loadState(@NotNull Element element) {
-        setViewTemplate(element.getAttributeValue("viewTemplate"));
+        setActivityTemplate(element.getAttributeValue("activityTemplate"));
+        setFragmentTemplate(element.getAttributeValue("fragmentTemplate"));
         setViewModelTemplate(element.getAttributeValue("viewModelTemplate"));
         setLayoutlTemplate(element.getAttributeValue("layoutTemplate"));
     }
 
 
-    void setViewTemplate(String viewTemplate) {
-        this.viewTemplate = viewTemplate;
+    void setActivityTemplate(String activityTemplate) {
+        this.activityTemplate = activityTemplate;
     }
 
-    public String getViewTemplate() {
-        return viewTemplate == null ? MVVMTemple.VIEW : viewTemplate;
+    public void setFragmentTemplate(String fragmentTemplate) {
+        this.fragmentTemplate = fragmentTemplate;
+    }
+
+    public String getActivityTemplate() {
+        return activityTemplate == null ? MVVMTemple.ACTIVITY : activityTemplate;
+    }
+
+    public String getFragmentTemplate() {
+        return fragmentTemplate == null ? MVVMTemple.FRAGMENT : fragmentTemplate;
     }
 
     void setViewModelTemplate(String template) {

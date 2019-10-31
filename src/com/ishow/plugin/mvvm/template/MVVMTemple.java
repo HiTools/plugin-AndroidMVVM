@@ -5,10 +5,11 @@ package com.ishow.plugin.mvvm.template;
  */
 public class MVVMTemple {
 
-    public static final String VIEW_SUFFIX = "Activity";
+    public static final String ACTIVITY_SUFFIX = "Activity";
+    public static final String FRAGMENT_SUFFIX = "Fragment";
     public static final String VIEW_MODEL_SUFFIX = "ViewModel";
 
-    public static final String VIEW =
+    public static final String ACTIVITY =
             "package ${PACKAGE_NAME}\n" +
                     "\n" +
                     "import android.os.Bundle\n" +
@@ -18,7 +19,7 @@ public class MVVMTemple {
                     "/**\n" +
                     " * Created by yuhaiyang on ${DATE}.\n" +
                     " */\n" +
-                    "class ${TARGET_NAME}" + VIEW_SUFFIX + " : AppBindActivity<A${TARGET_NAME}Binding, ${TARGET_NAME}" + VIEW_MODEL_SUFFIX + ">() {\n" +
+                    "class ${TARGET_NAME}" + ACTIVITY_SUFFIX + " : AppBindActivity<A${TARGET_NAME}Binding, ${TARGET_NAME}" + VIEW_MODEL_SUFFIX + ">() {\n" +
                     "\n" +
                     "    override fun onCreate(savedInstanceState: Bundle?) {\n" +
                     "        super.onCreate(savedInstanceState)\n" +
@@ -32,6 +33,20 @@ public class MVVMTemple {
                     "\n" +
                     "}";
 
+    public static final String FRAGMENT =
+            "package ${PACKAGE_NAME}\n" +
+                    "\n" +
+                    "import com.ishow.noah.R\n" +
+                    "import com.ishow.noah.modules.base.mvvm.view.AppBindFragment\n" +
+                    "\n" +
+                    "/**\n" +
+                    " * Created by yuhaiyang on ${DATE}.\n" +
+                    " */\n" +
+                    "class ${TARGET_NAME}" + FRAGMENT_SUFFIX + " : AppBindFragment<F${TARGET_NAME}Binding, ${TARGET_NAME}" + VIEW_MODEL_SUFFIX + ">() {\n" +
+                    "\n" +
+                    "    override fun getLayout(): Int = R.layout.f${TARGET_NAME_LINE}" +
+                    "\n" +
+                    "}";
 
     public static final String VIEW_MODEL =
             "package ${PACKAGE_NAME}\n" +
