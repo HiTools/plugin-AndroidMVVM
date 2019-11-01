@@ -34,10 +34,10 @@ public class MvvmTemplateConfigure implements SearchableConfigurable {
 
     @Override
     public void reset() {
-        form.activityTemplate.setText(MVVMTemple.ACTIVITY);
-        form.fragmentTemplate.setText(MVVMTemple.FRAGMENT);
-        form.viewModelTemplate.setText(MVVMTemple.VIEW_MODEL);
-        form.layoutTemplate.setText(MVVMTemple.LAYOUT);
+        form.activityTemplate.setText(settings.getActivityTemplate());
+        form.fragmentTemplate.setText(settings.getFragmentTemplate());
+        form.viewModelTemplate.setText(settings.getViewModelTemplate());
+        form.layoutTemplate.setText(settings.getLayoutTemplate());
     }
 
     @Nullable
