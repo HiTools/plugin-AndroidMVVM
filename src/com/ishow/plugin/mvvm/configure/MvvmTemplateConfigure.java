@@ -26,10 +26,10 @@ public class MvvmTemplateConfigure implements SearchableConfigurable {
         return MvvmTemplateConfigure.class.getName();
     }
 
-    @Nls(capitalization = Nls.Capitalization.Title)
     @Override
+    @Nls(capitalization = Nls.Capitalization.Title)
     public String getDisplayName() {
-        return MvvmTemplateConfigure.class.getName();
+        return "MVVM代码生成配置";
     }
 
     @Override
@@ -51,7 +51,6 @@ public class MvvmTemplateConfigure implements SearchableConfigurable {
 
     @Override
     public boolean isModified() {
-
         return !settings.getActivityTemplate().equals(form.activityTemplate.getText()) ||
                 !settings.getFragmentTemplate().equals(form.fragmentTemplate.getText()) ||
                 !settings.getViewModelTemplate().equals(form.viewModelTemplate.getText()) ||
@@ -61,7 +60,7 @@ public class MvvmTemplateConfigure implements SearchableConfigurable {
     @Override
     public void apply() throws ConfigurationException {
         settings.setActivityTemplate(form.activityTemplate.getText());
-        settings.setActivityTemplate(form.fragmentTemplate.getText());
+        settings.setFragmentTemplate(form.fragmentTemplate.getText());
         settings.setViewModelTemplate(form.viewModelTemplate.getText());
         settings.setLayoutlTemplate(form.layoutTemplate.getText());
     }

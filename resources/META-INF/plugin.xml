@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.ishow.plugin.mvvm</id>
     <name>MVVM Code Gengrenator</name>
-    <version>1.0.5</version>
+    <version>1.0.5.1</version>
     <vendor email="y.haiyang@qq.com" url="http://www.i-show.club">i-show</vendor>
 
     <description><![CDATA[
