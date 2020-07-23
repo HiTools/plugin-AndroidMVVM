@@ -20,7 +20,7 @@ import java.io.IOException;
  * Created by yuhaiyang on 2019/9/26.
  */
 @SuppressWarnings("ComponentNotRegistered")
-public class MvvmGengrenatorAction extends AnAction {
+public class MvvmGenerateAction extends AnAction {
     private Project project;
 
     @Override

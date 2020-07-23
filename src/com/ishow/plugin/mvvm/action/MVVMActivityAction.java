@@ -7,7 +7,7 @@ import java.io.IOException;
 /**
  * Created by yuhaiyang on 2019/10/31.
  */
-public class MVVMActivityAction extends MvvmGengrenatorAction {
+public class MVVMActivityAction extends MvvmGenerateAction {
 
     @Override
     protected void create(String pathString, String targetName) throws IOException {

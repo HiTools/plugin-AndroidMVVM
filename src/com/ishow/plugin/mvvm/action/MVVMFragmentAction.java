@@ -7,7 +7,7 @@ import java.io.IOException;
 /**
  * Created by yuhaiyang on 2019/10/31.
  */
-public class MVVMFragmentAction extends MvvmGengrenatorAction {
+public class MVVMFragmentAction extends MvvmGenerateAction {
 
 
     @Override
