@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.ishow.plugin.mvvm.utils;
+package utils;
 
 
 import java.text.ParseException;

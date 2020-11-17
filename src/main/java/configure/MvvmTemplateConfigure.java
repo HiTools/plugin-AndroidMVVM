@@ -1,8 +1,7 @@
-package com.ishow.plugin.mvvm.configure;
+package configure;
 
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.options.SearchableConfigurable;
-import com.ishow.plugin.mvvm.template.MVVMTemple;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -27,7 +26,6 @@ public class MvvmTemplateConfigure implements SearchableConfigurable {
     }
 
     @Override
-    @Nls(capitalization = Nls.Capitalization.Title)
     public String getDisplayName() {
         return "MVVM代码生成配置";
     }

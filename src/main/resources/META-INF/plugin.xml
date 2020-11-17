@@ -1,0 +1,39 @@
+<idea-plugin>
+    <id>com.ishow.test2</id>
+    <name>MVVM</name>
+    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+
+    <description><![CDATA[
+    Enter short description for your plugin here.<br>
+    <em>most HTML tags may be used</em>
+    ]]></description>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.android</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable instance="configure.MvvmTemplateConfigure"/>
+        <applicationService serviceImplementation="configure.MvvmTemplateSettings"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="MVVMActivityAction"
+                class="action.MVVMActivityAction"
+                text="MVVMActivityAction"
+                description="Activity生成Action">
+            <keyboard-shortcut keymap="$default" first-keystroke="shift meta A"/>
+        </action>
+
+        <action id="MVVMFragmentAction"
+                class="action.MVVMFragmentAction"
+                text="MVVMFragmentAction"
+                description="Fragment生成Action">
+            <keyboard-shortcut keymap="$default" first-keystroke="shift meta F"/>
+        </action>
+
+    </actions>
+
+</idea-plugin>

@@ -1,10 +1,7 @@
-#只忽略当前目录下的.idea文件和目录
-.idea
-#忽略所有iml后缀的文件
-*.iml
+build/
+.idea/
 
-#忽略所有target文件夹
-/out
+# OSX files
+.DS_Store
 
-*.mf
-
+.gradle/

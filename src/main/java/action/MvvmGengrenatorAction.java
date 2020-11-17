@@ -1,15 +1,14 @@
-package com.ishow.plugin.mvvm.action;
+package action;
 
 import com.intellij.ide.IdeView;
 import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.psi.PsiDirectory;
-import com.ishow.plugin.mvvm.configure.MvvmTemplateSettings;
-import com.ishow.plugin.mvvm.template.MVVMTemple;
-import com.ishow.plugin.mvvm.utils.StringUtils;
+import configure.MvvmTemplateSettings;
 import org.jetbrains.annotations.NotNull;
+import template.MVVMTemple;
+import utils.StringUtils;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -20,7 +19,7 @@ import java.io.IOException;
  * Created by yuhaiyang on 2019/9/26.
  */
 @SuppressWarnings("ComponentNotRegistered")
-public class MvvmGenerateAction extends AnAction {
+public class MvvmGengrenatorAction extends AnAction {
     private Project project;
 
     @Override

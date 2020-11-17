@@ -1,4 +1,4 @@
-package com.ishow.plugin.mvvm.configure;
+package configure;
 
 import javax.swing.*;
 

@@ -1,13 +1,13 @@
-package com.ishow.plugin.mvvm.action;
+package action;
 
-import com.ishow.plugin.mvvm.configure.MvvmTemplateSettings;
+import configure.MvvmTemplateSettings;
 
 import java.io.IOException;
 
 /**
  * Created by yuhaiyang on 2019/10/31.
  */
-public class MVVMFragmentAction extends MvvmGenerateAction {
+public class MVVMFragmentAction extends MvvmGengrenatorAction {
 
 
     @Override

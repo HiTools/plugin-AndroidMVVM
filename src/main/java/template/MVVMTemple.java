@@ -1,4 +1,4 @@
-package com.ishow.plugin.mvvm.template;
+package template;
 
 /**
  * Created by yuhaiyang on 2019/9/26.

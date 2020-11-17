@@ -1,4 +1,4 @@
-package com.ishow.plugin.mvvm.utils;
+package utils;
 
 import org.apache.http.util.TextUtils;
 

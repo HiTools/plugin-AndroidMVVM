@@ -1,13 +1,14 @@
-package com.ishow.plugin.mvvm.action;
+package action;
 
-import com.ishow.plugin.mvvm.configure.MvvmTemplateSettings;
+
+import configure.MvvmTemplateSettings;
 
 import java.io.IOException;
 
 /**
  * Created by yuhaiyang on 2019/10/31.
  */
-public class MVVMActivityAction extends MvvmGenerateAction {
+public class MVVMActivityAction extends MvvmGengrenatorAction {
 
     @Override
     protected void create(String pathString, String targetName) throws IOException {
