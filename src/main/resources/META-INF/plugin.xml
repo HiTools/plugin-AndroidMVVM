@@ -1,12 +1,19 @@
 <idea-plugin>
-    <id>com.ishow.test2</id>
-    <name>MVVM</name>
-    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+    <id>com.ishow.plugin.mvvm</id>
+    <name>Android MVVM Generator</name>
+    <version>1.0.6</version>
+    <vendor email="y.haiyang@qq.com" url="http://www.i-show.club">i-show</vendor>
 
     <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
+      <h1>Android MVVM Generator</h1>
+      <p> 可以自动生成Android MVVM 代码的插件</p>
     ]]></description>
+
+    <change-notes><![CDATA[
+       <h1>Android MVVM Generator</h1>
+      <p> 可以自动生成Android MVVM 代码的插件</p>
+    ]]>
+    </change-notes>
 
     <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->

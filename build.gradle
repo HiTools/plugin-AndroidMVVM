@@ -3,8 +3,8 @@ plugins {
     id 'org.jetbrains.intellij' version '0.6.3'
 }
 
-group 'com.ishow'
-version '1.0.8.2'
+group 'com.ishow.plugin.mvvm'
+version '1.0.7.10'
 
 repositories {
     mavenCentral()
@@ -17,13 +17,13 @@ dependencies {
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
     alternativeIdePath '/Applications/Android Studio.app'
-    version '201.8743.12'  // Same IntelliJ IDEA version (2019.1.4) as target 3.5 Android Studio
-    type 'IC'              // Use IntelliJ IDEA CE because it's the basis of the IntelliJ Platform
+    version '201.8743.12'
+    type 'IC'
     plugins 'android'
 }
 
 patchPluginXml {
     changeNotes """
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>"""
+      适配AndroidStuido 4.1<br>
+      <em></em>"""
 }
