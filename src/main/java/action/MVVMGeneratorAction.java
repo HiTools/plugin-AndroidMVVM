@@ -1,11 +1,10 @@
 package action;
 
-import com.intellij.ide.IdeView;
 import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.vfs.VirtualFile;
-import configure.MvvmTemplateSettings;
+import configure.MVVMTemplateSettings;
 import org.jetbrains.annotations.NotNull;
 import template.MVVMTemple;
 import utils.StringUtils;
@@ -19,14 +18,12 @@ import java.io.IOException;
  * Created by yuhaiyang on 2019/9/26.
  */
 @SuppressWarnings("ComponentNotRegistered")
-public class MvvmGengrenatorAction extends AnAction {
+public class MVVMGeneratorAction extends AnAction {
     private Project project;
 
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
         project = e.getData(PlatformDataKeys.PROJECT);
-        final IdeView view = e.getRequiredData(LangDataKeys.IDE_VIEW);
-
         final String path = getCurrentPath(e);
         final String moduleName = inputModuleName();
         try {
@@ -43,7 +40,7 @@ public class MvvmGengrenatorAction extends AnAction {
 
     }
 
-    void createActivity(MvvmTemplateSettings setting, String pathString, String packageName, String targetName) throws IOException {
+    void createActivity(MVVMTemplateSettings setting, String pathString, String packageName, String targetName) throws IOException {
         final String fileName = StringUtils.plusString(targetName, MVVMTemple.ACTIVITY_SUFFIX, ".kt");
         String content = setting.getActivityTemplate();
         content = content.replaceAll("\\$\\{PACKAGE_NAME}", packageName);
@@ -54,7 +51,7 @@ public class MvvmGengrenatorAction extends AnAction {
     }
 
 
-    void createFragment(MvvmTemplateSettings setting, String pathString, String packageName, String targetName) throws IOException {
+    void createFragment(MVVMTemplateSettings setting, String pathString, String packageName, String targetName) throws IOException {
         final String fileName = StringUtils.plusString(targetName, MVVMTemple.FRAGMENT_SUFFIX, ".kt");
         String content = setting.getFragmentTemplate();
         content = content.replaceAll("\\$\\{PACKAGE_NAME}", packageName);
@@ -64,7 +61,7 @@ public class MvvmGengrenatorAction extends AnAction {
         createFile(pathString, fileName, content);
     }
 
-    void createViewModel(MvvmTemplateSettings setting, String pathString, String packageName, String targetName) throws IOException {
+    void createViewModel(MVVMTemplateSettings setting, String pathString, String packageName, String targetName) throws IOException {
         final String fileName = StringUtils.plusString(targetName, MVVMTemple.VIEW_MODEL_SUFFIX, ".kt");
         String content = setting.getViewModelTemplate().replaceAll("\\$\\{PACKAGE_NAME}", packageName);
         content = content.replaceAll("\\$\\{TARGET_NAME}", targetName);
@@ -72,7 +69,7 @@ public class MvvmGengrenatorAction extends AnAction {
         createFile(pathString, fileName, content);
     }
 
-    void createActivityLayout(MvvmTemplateSettings setting, String pathString, String packageName, String targetName) throws IOException {
+    void createActivityLayout(MVVMTemplateSettings setting, String pathString, String packageName, String targetName) throws IOException {
         final String fileName = StringUtils.plusString("a", StringUtils.humpToLine(targetName), ".xml");
         String content = setting.getLayoutTemplate().replaceAll("\\$\\{PACKAGE_NAME}", packageName);
         content = content.replaceAll("\\$\\{TARGET_NAME}", targetName);
@@ -80,7 +77,7 @@ public class MvvmGengrenatorAction extends AnAction {
         createFile(pathString, fileName, content);
     }
 
-    void createFragemtnLayout(MvvmTemplateSettings setting, String pathString, String packageName, String targetName) throws IOException {
+    void createFragemtnLayout(MVVMTemplateSettings setting, String pathString, String packageName, String targetName) throws IOException {
         final String fileName = StringUtils.plusString("f", StringUtils.humpToLine(targetName), ".xml");
         String content = setting.getLayoutTemplate().replaceAll("\\$\\{PACKAGE_NAME}", packageName);
         content = content.replaceAll("\\$\\{TARGET_NAME}", targetName);
@@ -126,7 +123,7 @@ public class MvvmGengrenatorAction extends AnAction {
     }
 
     private String getCurrentPath(AnActionEvent e) {
-        VirtualFile currentFile = DataKeys.VIRTUAL_FILE.getData(e.getDataContext());
+        VirtualFile currentFile = PlatformDataKeys.VIRTUAL_FILE.getData(e.getDataContext());
         if (currentFile != null) {
             return currentFile.getPath();
         }

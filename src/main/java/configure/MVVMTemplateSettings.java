@@ -13,15 +13,15 @@ import template.MVVMTemple;
 /**
  * Created by yuhaiyang on 2019/9/26.
  */
-@State(name = "MvvpTemplateSetting", storages = {@Storage(file = "$APP_CONFIG$/format.xml")})
-public class MvvmTemplateSettings implements PersistentStateComponent<Element> {
+@State(name = "MVVMTemplateSetting", storages = {@Storage(value = "mvvm_generator_config.xml")})
+public class MVVMTemplateSettings implements PersistentStateComponent<Element> {
     private String activityTemplate;
     private String fragmentTemplate;
     private String viewModelTemplate;
     private String layoutTemplate;
 
-    public static MvvmTemplateSettings getInstance() {
-        return ServiceManager.getService(MvvmTemplateSettings.class);
+    public static MVVMTemplateSettings getInstance() {
+        return ServiceManager.getService(MVVMTemplateSettings.class);
     }
 
     @Nullable

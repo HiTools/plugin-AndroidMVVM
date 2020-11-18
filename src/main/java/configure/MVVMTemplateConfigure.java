@@ -2,7 +2,6 @@ package configure;
 
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.options.SearchableConfigurable;
-import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -11,23 +10,23 @@ import javax.swing.*;
 /**
  * Created by yuhaiyang on 2019/9/26.
  */
-public class MvvmTemplateConfigure implements SearchableConfigurable {
-    private MvvmTemplateSettings settings;
+public class MVVMTemplateConfigure implements SearchableConfigurable {
+    private MVVMTemplateSettings settings;
     private MVVMForm form;
 
-    public MvvmTemplateConfigure() {
-        settings = MvvmTemplateSettings.getInstance();
+    public MVVMTemplateConfigure() {
+        settings = MVVMTemplateSettings.getInstance();
     }
 
     @NotNull
     @Override
     public String getId() {
-        return MvvmTemplateConfigure.class.getName();
+        return MVVMTemplateConfigure.class.getName();
     }
 
     @Override
     public String getDisplayName() {
-        return "MVVM代码生成配置";
+        return "Android MVVM Generator";
     }
 
     @Override

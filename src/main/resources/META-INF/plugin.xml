@@ -21,8 +21,12 @@
     <depends>org.jetbrains.android</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationConfigurable instance="configure.MvvmTemplateConfigure"/>
-        <applicationService serviceImplementation="configure.MvvmTemplateSettings"/>
+        <applicationConfigurable instance="configure.MVVMTemplateConfigure"/>
+        <applicationService serviceImplementation="configure.MVVMTemplateSettings"/>
+        <!--
+        <projectConfigurable instance="configure.MVVMTemplateConfigure"/>
+        <projectService serviceImplementation="configure.MVVMTemplateSettings"/>
+         -->
     </extensions>
 
     <actions>
