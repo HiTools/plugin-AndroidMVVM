@@ -6,7 +6,9 @@
 
     <description><![CDATA[
       <h1>Android MVVM Generator</h1>
-      <p>Auto generator Android MVVM Code</p>
+      <p>⇪ + ⌃ + A， can be auto generated XXXActivity、XXXViewModel and a_xxx.xml(databind layout) after entering keywords</p>
+      <p>⇪ + ⌃ + F， can be auto generated XXXFragment、XXXViewModel and a_xxx.xml(databind layout) after entering keywords</p>
+      <p>Also you can modify Template code in Preference => Other Settings => Android MVVM Generator</p>
     ]]></description>
 
     <change-notes><![CDATA[
