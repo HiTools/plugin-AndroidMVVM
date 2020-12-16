@@ -16,15 +16,21 @@ dependencies {
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
-    alternativeIdePath '/Applications/Android Studio.app'
-    version '201.8743.12'
-    type 'IC'
     plugins 'android'
+
+    alternativeIdePath '/Applications/Android Studio.app'
+    version '2019.2'
+
+    patchPluginXml {
+        sinceBuild '191'
+        // Esté atento a las nuevas actualizaciones de Branch number y cambia la siguiente línea
+        // https://jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html
+        untilBuild '202.*'
+
+        changeNotes """
+          1. Adapter AndroidStuido 4.1<br>
+          2. Add usage instructions. <br>
+          <em></em>"""
+    }
 }
 
-patchPluginXml {
-    changeNotes """
-      1. Adapter AndroidStuido 4.1<br>
-      2. Add usage instructions. <br>
-      <em></em>"""
-}
