@@ -9,7 +9,6 @@ import java.io.IOException;
  */
 public class MVVMFragmentAction extends MVVMGeneratorAction {
 
-
     @Override
     protected void create(String pathString, String targetName) throws IOException {
         final String packageName = getPackageName(pathString);

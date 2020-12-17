@@ -1,7 +1,10 @@
 package action;
 
-import com.intellij.openapi.actionSystem.*;
+import com.intellij.openapi.actionSystem.AnAction;
+import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.project.ProjectUtil;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.vfs.VirtualFile;
 import configure.MVVMTemplateSettings;
@@ -17,7 +20,7 @@ import java.io.IOException;
 /**
  * Created by yuhaiyang on 2019/9/26.
  */
-@SuppressWarnings("ComponentNotRegistered")
+@SuppressWarnings({"ComponentNotRegistered", "DialogTitleCapitalization"})
 public class MVVMGeneratorAction extends AnAction {
     private Project project;
 
@@ -32,6 +35,7 @@ public class MVVMGeneratorAction extends AnAction {
             e1.printStackTrace();
         }
 
+        //noinspection DialogTitleCapitalization
         Messages.showMessageDialog("文件已经生成完毕", "提示", Messages.getInformationIcon());
         refreshProject(e);
     }
@@ -98,6 +102,7 @@ public class MVVMGeneratorAction extends AnAction {
         }
 
         if (file.exists()) {
+            //noinspection DialogTitleCapitalization
             Messages.showMessageDialog("文件已经存在", "提示", Messages.getInformationIcon());
             return;
         }
@@ -112,7 +117,17 @@ public class MVVMGeneratorAction extends AnAction {
     }
 
     private void refreshProject(AnActionEvent e) {
-        e.getProject().getBaseDir().refresh(false, true);
+        final Project project = e.getProject();
+        if (project == null) {
+            Messages.showInfoMessage("获取Project失败，工程无法刷新", "提示");
+            return;
+        }
+        final VirtualFile file = ProjectUtil.guessProjectDir(project);
+        if (file == null) {
+            Messages.showInfoMessage("获取VirtualFile失败，工程无法刷新", "提示");
+            return;
+        }
+        file.refresh(false, true);
     }
 
     private String inputModuleName() {

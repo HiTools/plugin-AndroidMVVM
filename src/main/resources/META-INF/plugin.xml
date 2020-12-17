@@ -1,7 +1,6 @@
 <idea-plugin>
     <id>com.ishow.plugin.mvvm</id>
     <name>Android MVVM Generator</name>
-    <version>1.0.6</version>
     <vendor email="y.haiyang@qq.com">yuhaiyang</vendor>
 
     <description><![CDATA[
@@ -10,12 +9,6 @@
       <p>⇪ + ⌃ + F， can be auto generated XXXFragment、XXXViewModel and a_xxx.xml(databind layout) after entering keywords</p>
       <p>Also you can modify Template code in Preference => Other Settings => Android MVVM Generator</p>
     ]]></description>
-
-    <change-notes><![CDATA[
-       <h1>Android MVVM Generator</h1>
-       <p>Auto generator Android MVVM Code</p>
-    ]]>
-    </change-notes>
 
     <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->

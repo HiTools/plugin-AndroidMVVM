@@ -40,7 +40,7 @@ public class MVVMTemplateSettings implements PersistentStateComponent<Element> {
         setActivityTemplate(element.getAttributeValue("activityTemplate"));
         setFragmentTemplate(element.getAttributeValue("fragmentTemplate"));
         setViewModelTemplate(element.getAttributeValue("viewModelTemplate"));
-        setLayoutlTemplate(element.getAttributeValue("layoutTemplate"));
+        setLayoutTemplate(element.getAttributeValue("layoutTemplate"));
     }
 
 
@@ -68,7 +68,7 @@ public class MVVMTemplateSettings implements PersistentStateComponent<Element> {
         return viewModelTemplate == null ? MVVMTemple.VIEW_MODEL : viewModelTemplate;
     }
 
-    void setLayoutlTemplate(String template) {
+    void setLayoutTemplate(String template) {
         layoutTemplate = template;
     }
 

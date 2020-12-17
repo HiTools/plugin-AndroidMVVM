@@ -59,6 +59,6 @@ public class MVVMTemplateConfigure implements SearchableConfigurable {
         settings.setActivityTemplate(form.activityTemplate.getText());
         settings.setFragmentTemplate(form.fragmentTemplate.getText());
         settings.setViewModelTemplate(form.viewModelTemplate.getText());
-        settings.setLayoutlTemplate(form.layoutTemplate.getText());
+        settings.setLayoutTemplate(form.layoutTemplate.getText());
     }
 }
