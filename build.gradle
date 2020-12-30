@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'com.ishow.plugin.mvvm'
-version '1.1.3'
+version '1.1.5'
 
 repositories {
     mavenCentral()
@@ -25,11 +25,11 @@ intellij {
         sinceBuild '191'
         // Esté atento a las nuevas actualizaciones de Branch number y cambia la siguiente línea
         // https://jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html
-        untilBuild '202.*'
+        untilBuild '203.*'
 
         changeNotes """
-          1. Adapter AndroidStuido 4.1<br>
-          2. Add usage instructions. <br>
+          1. Adapter IDEA 2020.3<br>
+          2. Add ReadMe. <br>
           <em></em>"""
     }
 }

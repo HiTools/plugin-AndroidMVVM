@@ -8,6 +8,9 @@
       <p>⇪ + ⌃ + A， can be auto generated XXXActivity、XXXViewModel and a_xxx.xml(databind layout) after entering keywords</p>
       <p>⇪ + ⌃ + F， can be auto generated XXXFragment、XXXViewModel and a_xxx.xml(databind layout) after entering keywords</p>
       <p>Also you can modify Template code in Preference => Other Settings => Android MVVM Generator</p>
+      <h1>Source Code</h1>
+      <p>GitHub:https://github.com/HiTools/plugin-AndroidMVVM</p>
+      <p>Gitee:https://gitee.com/hitools/plugin-AndroidMVVM</p>
     ]]></description>
 
     <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
